@@ -1,5 +1,9 @@
 package com.warehousemanager.models.entity;
 
+// Login account entity, mapped 1:1 with a row in the Users table.
+// passwordHash/salt are never plain text — see PasswordHasher for how they're
+// produced. role ("admin"/"user") and status (active/blocked) drive the
+// authorization checks done in UserSession/controllers.
 public class User {
     private int id;
     private String username;
@@ -9,6 +13,7 @@ public class User {
     private String role;
     private boolean status;
 
+    // Auto-increment primary key from the Users table.
     public int getId() {
         return id;
     }
@@ -16,12 +21,16 @@ public class User {
         this.id = id;
     }
 
+    // Unique login name.
     public String getUsername() {
         return username;
-    }public void setUsername(String username) {
+    }
+
+    public void setUsername(String username) {
         this.username = username;
     }
 
+    // Salted SHA-256 hash of the password — never the raw password.
     public String getPasswordHash() {
         return passwordHash;
     }
@@ -29,6 +38,7 @@ public class User {
         this.passwordHash = passwordHash;
     }
 
+    // Random per-user salt mixed into the password before hashing.
     public String getSalt() {
         return salt;
     }
@@ -36,6 +46,7 @@ public class User {
         this.salt = salt;
     }
 
+    // Optional contact email.
     public String getEmail() {
         return email;
     }
@@ -43,6 +54,7 @@ public class User {
         this.email = email;
     }
 
+    // "admin" or "user" — checked by UserSession.isAdmin() for authorization.
     public String getRole() {
         return role;
     }
@@ -50,6 +62,7 @@ public class User {
         this.role = role;
     }
 
+    // true = active, false = blocked from logging in.
     public boolean isStatus() {
         return status;
     }
