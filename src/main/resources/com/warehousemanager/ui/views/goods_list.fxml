@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane prefHeight="660.0" prefWidth="1080.0"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.warehousemanager.ui.controllers.GoodsListController"
+            stylesheets="@../styles/main.css">
+
+    <!-- TOP: Header -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="header">
+            <Button text="← Back" onAction="#goBack" styleClass="btn-secondary"/>
+            <Label text="Inventory Management" styleClass="title"/>
+        </HBox>
+    </top>
+
+    <!-- CENTER: Table + Controls -->
+    <center>
+        <VBox spacing="12">
+            <padding><Insets top="16" bottom="16" left="20" right="20"/></padding>
+
+            <!-- Toolbar row 1: Search + Filter -->
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <TextField fx:id="txtSearch" promptText="Search by code or name..."
+                           styleClass="field" HBox.hgrow="ALWAYS"/>
+                <Button text="Search"        onAction="#handleSearch"       styleClass="btn-primary"/>
+                <Button text="Clear Search"  onAction="#handleClearSearch"  styleClass="btn-secondary"/>
+                <ComboBox fx:id="cbFilter" styleClass="field" prefWidth="160"/>
+                <Button text="Filter"        onAction="#handleFilter"       styleClass="btn-secondary"/>
+                <Button text="Sort Quantity" onAction="#handleSort"         styleClass="btn-secondary"/>
+                <Button text="Warning"       onAction="#handleShowLowStock"  styleClass="btn-warning"/>
+            </HBox>
+
+            <!-- Toolbar row 2: Data operations -->
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Button text="Export Goods" onAction="#handleExport"       styleClass="btn-primary"/>
+                <Button fx:id="btnDelete" text="Delete" onAction="#handleDelete" styleClass="btn-danger"/>
+                <Button text="Reload DB"    onAction="#handleReload"       styleClass="btn-secondary"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Backup"       onAction="#handleBackup"       styleClass="btn-secondary"/>
+                <Button text="Restore"      onAction="#handleRestore"      styleClass="btn-secondary"/>
+            </HBox>
+
+            <!-- Table -->
+            <TableView fx:id="tableView" VBox.vgrow="ALWAYS" styleClass="table-view">
+                <columns>
+                    <TableColumn fx:id="colCode"  text="Goods Code"   prefWidth="90"/>
+                    <TableColumn fx:id="colName"  text="Goods Name"   prefWidth="200"/>
+                    <TableColumn fx:id="colType"  text="Category"     prefWidth="130"/>
+                    <TableColumn fx:id="colUnit"  text="Unit"         prefWidth="80"/>
+                    <TableColumn fx:id="colQty"   text="Quantity"     prefWidth="90"/>
+                    <TableColumn fx:id="colExtra" text="Supplier / Sell Price" prefWidth="180"/>
+                    <TableColumn fx:id="colValue" text="Stock Value"   prefWidth="130"/>
+                </columns>
+                <placeholder>
+                    <Label text="Warehouse is empty." styleClass="field-label"/>
+                </placeholder>
+            </TableView>
+
+            <!-- Stats -->
+            <HBox spacing="40" alignment="CENTER_LEFT">
+                <Label fx:id="lblTotal"    styleClass="subtitle"/>
+                <Label fx:id="lblLowCount" styleClass="subtitle"/>
+            </HBox>
+
+            <!-- Status -->
+            <Label fx:id="lblStatus" styleClass="field-label"/>
+        </VBox>
+    </center>
+</BorderPane>

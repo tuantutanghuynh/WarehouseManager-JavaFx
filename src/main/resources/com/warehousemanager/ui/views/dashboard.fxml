@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane prefHeight="520.0" prefWidth="700.0"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.warehousemanager.ui.controllers.DashboardController"
+            stylesheets="@../styles/main.css">
+
+    <!-- TOP: Header -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16" styleClass="header">
+            <Label text="Warehouse Manager" styleClass="title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <VBox alignment="CENTER_RIGHT">
+                <Label fx:id="lblWelcome" styleClass="subtitle"/>
+                <Label fx:id="lblRole" styleClass="field-label"/>
+            </VBox>
+            <Button text="Logout" onAction="#handleLogout" styleClass="btn-danger"/>
+        </HBox>
+    </top>
+
+    <!-- LEFT: Sidebar navigation -->
+    <left>
+        <VBox spacing="8" styleClass="sidebar" prefWidth="200">
+            <Label text="Features" styleClass="field-label"/>
+            <Separator opacity="0.3"/>
+            <Button text="Import Goods"  onAction="#goAddGoods"  styleClass="sidebar-btn" maxWidth="Infinity"/>
+            <Button text="Goods List"    onAction="#goGoodsList" styleClass="sidebar-btn" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <!-- CENTER: Status / Welcome area -->
+    <center>
+        <VBox alignment="CENTER" spacing="20">
+            <Label text="Dashboard" styleClass="title"/>
+            <Label fx:id="lblStatus" styleClass="subtitle" wrapText="true"/>
+            <Label text="Select a feature from the left sidebar to begin."
+                   styleClass="field-label" wrapText="true"/>
+        </VBox>
+    </center>
+</BorderPane>

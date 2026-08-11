@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane prefHeight="640.0" prefWidth="700.0"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.warehousemanager.ui.controllers.AddGoodsController"
+            stylesheets="@../styles/main.css">
+
+    <!-- TOP: Header -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="header">
+            <Button text="← Back" onAction="#goBack" styleClass="btn-secondary"/>
+            <Label text="Import Goods" styleClass="title"/>
+        </HBox>
+    </top>
+
+    <!-- CENTER: Form -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox spacing="16" styleClass="form-container">
+                <padding><Insets top="24" bottom="24" left="40" right="40"/></padding>
+
+                <!-- Goods Code -->
+                <HBox alignment="CENTER_LEFT" spacing="16">
+                    <Label text="Goods Code" styleClass="field-label" prefWidth="160"/>
+                    <TextField fx:id="txtCode" promptText="e.g. RM001, FP001" styleClass="field" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <!-- Goods Name -->
+                <HBox alignment="CENTER_LEFT" spacing="16">
+                    <Label text="Goods Name" styleClass="field-label" prefWidth="160"/>
+                    <TextField fx:id="txtName" promptText="e.g. Robusta Coffee Beans, Roasted Coffee" styleClass="field" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <!-- Unit -->
+                <HBox alignment="CENTER_LEFT" spacing="16">
+                    <Label text="Unit" styleClass="field-label" prefWidth="160"/>
+                    <TextField fx:id="txtUnit" promptText="e.g. Kg, Pack, Box, Bottle" styleClass="field" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <!-- Quantity -->
+                <HBox alignment="CENTER_LEFT" spacing="16">
+                    <Label text="Import Quantity" styleClass="field-label" prefWidth="160"/>
+                    <TextField fx:id="txtQuantity" promptText="Integer > 0" styleClass="field" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <!-- Min Stock Level -->
+                <HBox alignment="CENTER_LEFT" spacing="16">
+                    <Label text="Min Stock Level" styleClass="field-label" prefWidth="160"/>
+                    <TextField fx:id="txtMinStock" promptText="e.g. 10 (triggers low stock warning when below this)" styleClass="field" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <!-- Goods Type -->
+                <HBox alignment="CENTER_LEFT" spacing="16">
+                    <Label text="Category" styleClass="field-label" prefWidth="160"/>
+                    <HBox spacing="8">
+                        <ToggleButton fx:id="btnRawMaterial"    text="Raw Material"     styleClass="toggle-btn"/>
+                        <ToggleButton fx:id="btnFinishedProduct" text="Finished Product" styleClass="toggle-btn"/>
+                    </HBox>
+                </HBox>
+
+                <!-- Supplier (Raw Material only) -->
+                <HBox fx:id="rowSupplier" alignment="CENTER_LEFT" spacing="16">
+                    <Label text="Supplier" styleClass="field-label" prefWidth="160"/>
+                    <TextField fx:id="txtSupplier" promptText="e.g. Trung Nguyen Coffee Co." styleClass="field" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <!-- Sell Price (Finished Product only) -->
+                <HBox fx:id="rowSellPrice" alignment="CENTER_LEFT" spacing="16">
+                    <Label text="Sell Price (VND)" styleClass="field-label" prefWidth="160"/>
+                    <TextField fx:id="txtSellPrice" promptText="e.g. 95000" styleClass="field" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <Separator opacity="0.3"/>
+
+                <Button text="Import Goods" onAction="#handleImport"
+                        styleClass="btn-primary" maxWidth="Infinity"/>
+
+                <Label fx:id="lblMessage" wrapText="true" alignment="CENTER" maxWidth="Infinity"/>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

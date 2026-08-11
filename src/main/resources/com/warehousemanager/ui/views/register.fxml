@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane prefHeight="540.0" prefWidth="380.0"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.warehousemanager.ui.controllers.RegisterController"
+            stylesheets="@../styles/main.css">
+
+    <VBox alignment="CENTER" spacing="12"
+          AnchorPane.leftAnchor="60" AnchorPane.rightAnchor="60"
+          AnchorPane.topAnchor="50" AnchorPane.bottomAnchor="50">
+
+        <Label text="Warehouse Manager" styleClass="title"/>
+        <Label text="Create Account" styleClass="subtitle"/>
+
+        <VBox spacing="4">
+            <Label text="Username" styleClass="field-label"/>
+            <TextField fx:id="txtUsername" promptText="At least 3 characters" styleClass="field"/>
+        </VBox>
+
+        <VBox spacing="4">
+            <Label text="Password" styleClass="field-label"/>
+            <PasswordField fx:id="txtPassword" promptText="At least 6 characters" styleClass="field"/>
+        </VBox>
+
+        <VBox spacing="4">
+            <Label text="Confirm Password" styleClass="field-label"/>
+            <PasswordField fx:id="txtConfirm" promptText="Confirm password" styleClass="field"/>
+        </VBox>
+
+        <VBox spacing="4">
+            <Label text="Email (optional)" styleClass="field-label"/>
+            <TextField fx:id="txtEmail" promptText="email@example.com" styleClass="field"/>
+        </VBox>
+
+        <Button text="Register" onAction="#handleRegister"
+                styleClass="btn-primary" maxWidth="Infinity"
+                defaultButton="true"/>
+
+        <Label fx:id="lblMessage" wrapText="true" alignment="CENTER" maxWidth="Infinity"/>
+
+        <Separator opacity="0.3"/>
+
+        <Button text="Back to Login" onAction="#goLogin"
+                styleClass="btn-secondary" maxWidth="Infinity"/>
+    </VBox>
+</AnchorPane>

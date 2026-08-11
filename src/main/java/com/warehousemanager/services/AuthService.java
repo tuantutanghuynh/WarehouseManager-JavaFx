@@ -24,4 +24,32 @@ public class AuthService {
 
         return u;
     }
+
+    public boolean register(String username, String password, String confirmPassword, String email) {
+        Validator.requireNonBlank(username, "Username");
+        Validator.requireMinLength(username, "Username", 3);
+        Validator.requireNonBlank(password, "Password");
+        Validator.requireMinLength(password, "Password", 6);
+
+        if (!password.equals(confirmPassword)) {
+            throw new IllegalArgumentException("Passwords do not match");
+        }
+
+        if (userRepo.existsByUsername(username)) {
+            throw new IllegalArgumentException("Username \"" + username + "\" already taken.");
+
+        }
+
+        String salt = PasswordHasher.generateSalt();
+
+        User u = new User();
+        u.setUsername(username);
+        u.setSalt(salt);
+        u.setPasswordHash(PasswordHasher.hash(password, salt));
+        u.setEmail(email == null ? "" : email.trim());
+        u.setRole("user");
+        u.setStatus(true);
+
+        return userRepo.insert(u);
+    }
 }

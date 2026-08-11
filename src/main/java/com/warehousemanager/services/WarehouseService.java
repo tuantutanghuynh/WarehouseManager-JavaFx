@@ -318,7 +318,7 @@ public class WarehouseService<T extends Goods> {
 
     // Sorts the inventory asynchronously and returns the sorted snapshot to the UI
     // thread.
-    public Thread sortAndDiplayAsync(Consumer<List<T>> onResult) {
+    public Thread sortAndDisplayAsync(Consumer<List<T>> onResult) {
         Thread worker = new Thread(() -> {
             List<T> sorted = sortByQuantityDesc();
             Platform.runLater(() -> onResult.accept(sorted));

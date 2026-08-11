@@ -1,0 +1,279 @@
+/* ── Root ──────────────────────────────────────────────────── */
+
+.root {
+    -fx-background-color: #1E1E2E;
+    -fx-font-family: Georgia, serif;
+    -fx-font-size: 13px;
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+
+.title {
+    -fx-text-fill: #CDD6F4;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-font-family: Georgia, serif;
+}
+
+.subtitle {
+    -fx-text-fill: #A6ADC8;
+    -fx-font-size: 13px;
+    -fx-font-family: Georgia, serif;
+}
+
+.field-label {
+    -fx-text-fill: #6C7086;
+    -fx-font-size: 11px;
+    -fx-font-family: Georgia, serif;
+}
+
+.label {
+    -fx-text-fill: #CDD6F4;
+    -fx-font-family: Georgia, serif;
+}
+
+/* ── Form Fields ─────────────────────────────────────────────── */
+
+.field {
+    -fx-background-color: #313244;
+    -fx-text-fill: #CDD6F4;
+    -fx-prompt-text-fill: #585B70;
+    -fx-border-color: #45475A;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8 12;
+    -fx-font-family: Georgia, serif;
+    -fx-font-size: 13px;
+}
+
+.field:focused {
+    -fx-border-color: #89B4FA;
+    -fx-background-color: #363649;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+
+.btn-primary {
+    -fx-background-color: #89B4FA;
+    -fx-text-fill: #1E1E2E;
+    -fx-font-weight: bold;
+    -fx-font-family: Georgia, serif;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 9 18;
+    -fx-cursor: hand;
+}
+
+.btn-primary:hover   { -fx-background-color: #B4BEFE; }
+.btn-primary:pressed { -fx-background-color: #7287FD; }
+
+.btn-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #89B4FA;
+    -fx-border-color: #45475A;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 9 18;
+    -fx-cursor: hand;
+    -fx-font-family: Georgia, serif;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #313244;
+    -fx-border-color: #89B4FA;
+}
+
+.btn-danger {
+    -fx-background-color: #F38BA8;
+    -fx-text-fill: #1E1E2E;
+    -fx-font-weight: bold;
+    -fx-font-family: Georgia, serif;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 9 18;
+    -fx-cursor: hand;
+}
+
+.btn-danger:hover { -fx-background-color: #EBA0AC; }
+
+.btn-danger:disabled {
+    -fx-background-color: #45475A;
+    -fx-text-fill: #6C7086;
+    -fx-cursor: default;
+}
+
+/* btn-warning — used for low stock warning button */
+.btn-warning {
+    -fx-background-color: #FAB387;
+    -fx-text-fill: #1E1E2E;
+    -fx-font-weight: bold;
+    -fx-font-family: Georgia, serif;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 9 18;
+    -fx-cursor: hand;
+}
+
+.btn-warning:hover { -fx-background-color: #FCA99C; }
+
+/* ── Toggle Buttons ──────────────────────────────────────────── */
+
+.toggle-btn {
+    -fx-background-color: #313244;
+    -fx-text-fill: #A6ADC8;
+    -fx-border-color: #45475A;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+    -fx-font-family: Georgia, serif;
+}
+
+.toggle-btn:selected {
+    -fx-background-color: #89B4FA;
+    -fx-text-fill: #1E1E2E;
+    -fx-font-weight: bold;
+    -fx-border-color: #89B4FA;
+}
+
+/* ── Layout ──────────────────────────────────────────────────── */
+
+.header {
+    -fx-background-color: #181825;
+    -fx-padding: 12 20;
+    -fx-border-color: #45475A;
+    -fx-border-width: 0 0 1 0;
+}
+
+.sidebar {
+    -fx-background-color: #181825;
+    -fx-padding: 20 12;
+    -fx-border-color: #45475A;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #A6ADC8;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 16;
+    -fx-cursor: hand;
+    -fx-font-family: Georgia, serif;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: #313244;
+    -fx-text-fill: #CDD6F4;
+}
+
+.form-container {
+    -fx-background-color: #1E1E2E;
+}
+
+.scroll-pane {
+    -fx-background-color: #1E1E2E;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: #1E1E2E;
+}
+
+/* ── TableView ───────────────────────────────────────────────── */
+
+.table-view {
+    -fx-background-color: #313244;
+    -fx-border-color: #45475A;
+    -fx-border-radius: 5;
+    -fx-table-cell-border-color: #45475A;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #45475A;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #CDD6F4;
+    -fx-font-family: Georgia, serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.table-row-cell {
+    -fx-background-color: #313244;
+    -fx-text-fill: #CDD6F4;
+    -fx-font-family: Georgia, serif;
+    -fx-border-color: #45475A;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #2A2B3D;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #45475A;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #CDD6F4;
+}
+
+.table-cell {
+    -fx-text-fill: #CDD6F4;
+    -fx-font-family: Georgia, serif;
+    -fx-font-size: 13px;
+}
+
+/* ── Separator ───────────────────────────────────────────────── */
+
+.separator .line {
+    -fx-border-color: #45475A;
+}
+
+/* ── ScrollBar ───────────────────────────────────────────────── */
+
+.scroll-bar {
+    -fx-background-color: #313244;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #45475A;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #585B70;
+}
+
+/* ── ComboBox ────────────────────────────────────────────────── */
+
+.combo-box {
+    -fx-background-color: #313244;
+    -fx-border-color: #45475A;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: #313244;
+    -fx-text-fill: #CDD6F4;
+    -fx-font-family: Georgia, serif;
+    -fx-padding: 4 8;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #313244;
+    -fx-border-color: #45475A;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #45475A;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #89B4FA;
+    -fx-text-fill: #1E1E2E;
+}
