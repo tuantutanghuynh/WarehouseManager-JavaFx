@@ -14,7 +14,7 @@ public class DatabaseConfig {
 
     private static final String URL      = "jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagerDB;encrypt=false";
     private static final String USER     = "sa";
-    private static final String PASSWORD = "tuantu209423";
+    private static final String PASSWORD = "...";
 
     // Static utility class — never instantiated.
     private DatabaseConfig() {}
