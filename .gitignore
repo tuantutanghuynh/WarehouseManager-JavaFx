@@ -1,4 +1,6 @@
 *.md
 !README.md
 *.pdf
-target/
+target/
+src/main/resources/db.properties
+*.ser

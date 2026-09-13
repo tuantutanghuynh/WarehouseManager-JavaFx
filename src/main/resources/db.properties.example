@@ -1,0 +1,5 @@
+# Copy this file to "db.properties" (same folder) and fill in your real values.
+# db.properties is gitignored on purpose — never commit real credentials.
+db.url=jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagerDB;encrypt=false
+db.user=sa
+db.password=CHANGE_ME
