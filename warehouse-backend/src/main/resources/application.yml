@@ -1,0 +1,47 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1
+
+spring:
+  application:
+    name: warehouse-backend
+
+  datasource:
+    # Không hardcode giá trị thật ở đây — mọi secret đọc từ biến môi trường.
+    # Trước khi chạy (PowerShell):
+    #   $env:DB_PASSWORD = "mat-khau-that-cua-ban"
+    #   $env:JWT_SECRET  = "chuoi-bi-mat-256-bit-tu-sinh"
+    url: jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagerDB;encrypt=false;trustServerCertificate=true
+    username: ${DB_USER:sa}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+    # Cấu hình HikariCP Connection Pool tối ưu Production
+    hikari:
+      maximum-pool-size: 20 # Số kết nối tối đa giữ trong bộ nhớ
+      minimum-idle: 5 # Số kết nối rảnh tối thiểu luôn sẵn sàng
+      idle-timeout: 300000 # 5 phút rảnh thì giải phóng
+      max-lifetime: 1800000 # 30 phút tự tạo lại kết nối mới để tránh leak
+      connection-timeout: 20000 # Chờ tối đa 20 giây nếu hết connection
+
+  jpa:
+    hibernate:
+      ddl-auto: validate # Flyway quản lý DB, Hibernate chỉ validate cấu trúc
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.SQLServerDialect
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+# Cấu hình JWT Token — secret PHẢI đến từ biến môi trường, không được có giá trị mặc định
+# (nếu quên set JWT_SECRET, app sẽ fail khi start thay vì âm thầm dùng 1 secret ai cũng đọc được trên GitHub)
+jwt:
+  secret: ${JWT_SECRET}
+  access-token-expiration-ms: 86400000 # 24 giờ (1 ngày)
+  refresh-token-expiration-ms: 604800000 # 7 ngày

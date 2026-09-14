@@ -52,19 +52,25 @@ WarehouseManagerWithUI/
 │   ├── main/
 │   │   ├── java/com/warehousemanager/
 │   │   │   ├── App.java                   # Application entry point
-│   │   │   ├── dao/                       # Data Access Objects (UserDAO, GoodsDAO)
-│   │   │   ├── entity/                    # Domain models (Goods, RawMaterial, FinishedProduct, User)
-│   │   │   ├── exception/                 # Custom application exceptions (AppException)
+│   │   │   ├── config/                    # Database configuration (DatabaseConfig)
+│   │   │   ├── exceptions/                # Custom application exceptions (AppException)
+│   │   │   ├── models/
+│   │   │   │   ├── dto/                   # Data Transfer Objects (LoginRequest)
+│   │   │   │   └── entity/                # Domain entities (Goods, RawMaterial, FinishedProduct, User, Warehouse, IGoods)
+│   │   │   ├── repositories/              # Data Access layer (GoodsRepository, UserRepository)
 │   │   │   ├── services/                  # Business logic (AuthService, WarehouseService)
 │   │   │   ├── session/                   # In-memory user session singleton (UserSession)
 │   │   │   ├── ui/
 │   │   │   │   └── controllers/           # JavaFX FXML controllers & SceneSwitcher
-│   │   │   └── utils/                     # Utility helpers (Validator, PasswordHasher, DatabaseConnection)
+│   │   │   └── utils/                     # Utility helpers (Validator, PasswordHasher)
 │   │   └── resources/com/warehousemanager/ui/
 │   │       ├── styles/main.css            # Catppuccin dark mode CSS stylesheet
-│   │       └── views/                     # FXML layout views (login, register, dashboard, add_goods, goods_list)
+│   │       └── views/                     # FXML view layouts (login, register, dashboard, add_goods, goods_list)
 ├── pom.xml                                # Maven build configuration
-└── README.md                              # Project documentation
+├── README.md                              # Project documentation
+├── RoadMap_DuAn.md                        # Development roadmap
+├── NhatKy_HocTap.md                       # Study journal and concepts explanation
+└── PhongVan_CoreJava_QA.md                # Core Java interview Q&A
 ```
 
 ---
